@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+// php artisan send-welcome-mail
+Artisan::command('send-welcome-mail', function () {
+    // Mail::to('yourmail@gmail.com')->send(new WelcomeMail("Jon"));
+    Mail::mailer('mailtrap')->to('yourmail@gmail.com')->send(new WelcomeMail("Jon"));
+})->purpose('Send welcome mail');

@@ -2,7 +2,9 @@
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="GO-Blog" width="500">
 </p>
 
-[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Guzzle](https://img.shields.io/badge/Guzzle-%5E7.2-blue)](https://docs.guzzlephp.org/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Jetstream](https://img.shields.io/badge/Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Sanctum](https://img.shields.io/badge/Sanctum-%5E3.2-blue)](https://laravel.com/docs/sanctum) [![Tinker](https://img.shields.io/badge/Tinker-%5E2.8-blue)](https://laravel.com/docs/artisan) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/)
+[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Guzzle](https://img.shields.io/badge/Guzzle-%5E7.2-blue)](https://docs.guzzlephp.org/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Jetstream](https://img.shields.io/badge/Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Sanctum](https://img.shields.io/badge/Sanctum-%5E3.2-blue)](https://laravel.com/docs/sanctum) [![Tinker](https://img.shields.io/badge/Tinker-%5E2.8-blue)](https://laravel.com/docs/artisan) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Mailtrap](https://img.shields.io/badge/Mailtrap-%5E1.7-blue)](https://mailtrap.io/)
+
+
 
 GO-Blog is a Laravel-based project aimed at creating a powerful and user-friendly blogging platform. It provides a robust backend powered by PHP and the Laravel Framework, along with a modern front-end interface using Livewire.
 
@@ -15,6 +17,7 @@ This project leverages the following technologies:
 -   **Laravel Sanctum** (`^3.2`) - A lightweight package for API authentication in Laravel.
 -   **Laravel Tinker** (`^2.8`) - A REPL tool for interactive debugging and testing in Laravel.
 -   **Livewire** (`^2.12`) - A full-stack framework for building dynamic user interfaces in Laravel.
+-   **Mailtrap** (`^1.7`) - An Email Delivery Platform that delivers just in time. Great for businesses and individuals.
 
 ## Laravel Blog Project Roadmap
 
