@@ -52,6 +52,8 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 4. Implement CRUD operations for blog posts.
 
+    - [x] Create PostController and routes `php artisan make:controller PostController --resource`.
+    - [x] Create Post Model `php artisan make:model Post`.
     - [ ] Create a Livewire component for managing blog posts, such as `PostIndex`, `PostCreate`, `PostEdit`, and `PostShow`.
     - [ ] Define the necessary properties and methods in each Livewire component.
     - [ ] Implement the logic for creating, editing, and deleting blog posts using Laravel's Eloquent ORM.
