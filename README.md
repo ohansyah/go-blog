@@ -46,9 +46,9 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 3. Create blog model and migration.
 
-    - [ ] Generate a migration for the blog posts table: `php artisan make:migration create_blog_posts_table`.
-    - [ ] Define the structure of the blog posts table in the migration file.
-    - [ ] Run the migration: `php artisan migrate`.
+    - [x] Generate a migration for the blog posts table: `php artisan make:migration create_blog_posts_table`.
+    - [x] Define the structure of the blog posts table in the migration file.
+    - [x] Run the migration: `php artisan migrate`.
 
 4. Implement CRUD operations for blog posts.
 
