@@ -19,7 +19,7 @@ class PostController extends Controller
             ->where('user_posts.user_id', $user->id)
             ->get();
 
-        return view('post.index', compact('posts'));        
+        return view('post.index', compact('posts'));
     }
 
     /**
