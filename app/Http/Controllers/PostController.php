@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
+use App\Models\UserPost;
 
 class PostController extends Controller
 {
@@ -13,7 +15,11 @@ class PostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        dd($user);
+        $posts = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+            ->where('user_posts.user_id', $user->id)
+            ->get();
+
+        return view('post.index', compact('posts'));        
     }
 
     /**
