@@ -13,4 +13,13 @@ class Post extends Model
         'title',
         'content'
     ];
+
+    protected $appends = [
+        'created_at_format_dMY',
+    ];
+
+    public function getCreatedAtFormatDMYAttribute()
+    {
+        return $this->created_at->format('d M, Y');
+    }
 }
