@@ -54,23 +54,23 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
     - [x] Create PostController and routes `php artisan make:controller PostController --resource`.
     - [x] Create Post Model `php artisan make:model Post`.
-    - [ ] Create a Livewire component for managing blog posts, such as `PostIndex`, `PostCreate`, `PostEdit`, and `PostShow`.
-    - [ ] Define the necessary properties and methods in each Livewire component.
-    - [ ] Implement the logic for creating, editing, and deleting blog posts using Laravel's Eloquent ORM.
-    - [ ] Render the appropriate views and wire up the Livewire components with the necessary routes.
+    - [x] Create a Livewire component for managing blog posts, such as `PostIndex`, `PostCreate`, `PostEdit`, and `PostShow`.
+    - [x] Define the necessary properties and methods in each Livewire component.
+    - [x] Implement the logic for creating, editing, and deleting blog posts using Laravel's Eloquent ORM.
+    - [x] Render the appropriate views and wire up the Livewire components with the necessary routes.
 
 5. Design views for creating, editing, and displaying blog posts.
-    - [ ] Use Blade templates to design the views for creating, editing, and displaying blog posts.
-    - [ ] Style the views using Tailwind CSS classes and components.
-    - [ ] Leverage Livewire's data binding and wire directives to create dynamic and interactive UI elements.
+    - [x] Use Blade templates to design the views for creating, editing, and displaying blog posts.
+    - [x] Style the views using Tailwind CSS classes and components.
+    - [x] Leverage Livewire's data binding and wire directives to create dynamic and interactive UI elements.
 
 ### Phase 3: Enhancements
 
 6. Implement authorization for managing blog posts.
 
-    - [ ] Define authorization policies or gates for managing blog posts.
-    - [ ] Restrict access to create, edit, and delete operations based on user roles and permissions.
-    - [ ] Add appropriate authorization checks in the Livewire components and views.
+    - [x] Define authorization policies or gates for managing blog posts.
+    - [x] Restrict access to create, edit, and delete operations based on user roles and permissions.
+    - [x] Add appropriate authorization checks in the Livewire components and views.
 
 7. Integrate a rich text editor for content creation.
 
