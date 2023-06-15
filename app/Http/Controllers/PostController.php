@@ -43,7 +43,13 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = Auth::user();
+        $isUserPost = UserPost::where('user_id', $user->id)
+            ->where('post_id', $id)
+            ->exists();
+        $post = Post::findOrFail($id);
+
+        return view('post.show', compact('post', 'isUserPost'));
     }
 
     /**
