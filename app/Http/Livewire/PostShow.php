@@ -7,8 +7,10 @@ use Livewire\Component;
 class PostShow extends Component
 {
     public $post;
-    public function mount($post)
+    public $isUserPost;
+    public function mount($post, $isUserPost)
     {
         $this->post = $post;
+        $this->isUserPost = $isUserPost;
     }
 }

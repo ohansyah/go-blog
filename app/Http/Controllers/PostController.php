@@ -57,7 +57,11 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = Auth::user();
+        $post = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+            ->where('user_posts.user_id', $user->id)
+            ->findOrFail($id);
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -65,7 +69,14 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = Auth::user();
+        $post = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+            ->where('user_posts.user_id', $user->id)
+            ->findOrFail($id);
+
+        $post->update($request->only(['title', 'content']));
+        $isUserPost = 1;
+        return view('post.show', compact('post', 'isUserPost'));
     }
 
     /**
