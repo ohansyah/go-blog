@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        \DB::transaction(function () use ($request, $user) {
+            $post = Post::create($request->only(['title', 'content']));
+            UserPost::create([
+                'user_id' => $user->id,
+                'post_id' => $post->id
+            ]);
+        });
+        return redirect()->route('post.index');
     }
 
     /**
