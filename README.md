@@ -136,4 +136,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [ ]   Implement a sitemap.xml file to help search engines index your blog posts.
     - [ ]   Consider implementing canonical URLs, structured data, and other SEO best practices to improve search engine visibility.
 
-Please note that this roadmap is a general guideline and can be customized based on your project's specific requirements.
+### Phase 6: Unit Test
+
+### Phase 7: Refactor and Perform Enhancements
+
