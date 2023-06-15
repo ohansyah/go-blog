@@ -17,8 +17,6 @@
             <span class="text-gray-500 dark:text-gray-400 text-right">{{ $post->created_at_format_dMY }}</span>
         </div>
 
-        <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">
-            {{$post->content}}
-        </p>
+        <article class="prose max-w-screen-2xl dark:prose-invert mt-10">{!! $post->content !!}</article>
     </div>
 </div>

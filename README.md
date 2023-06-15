@@ -74,10 +74,10 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 7. Integrate a rich text editor for content creation.
 
-    - [ ] Choose a rich text editor library such as TinyMCE or CKEditor.
-    - [ ] Install the library using a package manager or include it directly in your project.
-    - [ ] Integrate the rich text editor into the create and edit views.
-    - [ ] Implement the necessary JavaScript code to handle content formatting and interactions.
+    - [X] Choose a rich text editor library such as TinyMCE or CKEditor.
+    - [x] Install the library using a package manager or include it directly in your project.
+    - [x] Integrate the rich text editor into the create and edit views.
+    - [x] Implement the necessary JavaScript code to handle content formatting and interactions.
 
 8. Add image upload functionality for blog posts.
 

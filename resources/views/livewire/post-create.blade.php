@@ -6,12 +6,12 @@
             
             <div class="mt-6">
                 <label for="title" class="block text-gray-700 dark:text-gray-300 font-medium">Title</label>
-                <input type="text" name="title" id="title" class="form-input mt-1 block w-full" required>
+                <input type="text" name="title" id="title" class="form-input mt-1 block w-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300" required>
             </div>
 
             <div class="mt-6">
                 <label for="content" class="block text-gray-700 dark:text-gray-300 font-medium">Content</label>
-                <textarea name="content" id="content" class="form-textarea mt-1 block w-full" rows="4" required></textarea>
+                <textarea name="content" id="myeditorinstance" class="form-textarea mt-1 block w-full" rows="20" required></textarea>
             </div>
 
             <div class="mt-6">
@@ -26,3 +26,5 @@
 
     </div>
 </div>
+
+<x-head.tinymce-config/>
