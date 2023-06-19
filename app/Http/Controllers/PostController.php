@@ -43,20 +43,32 @@ class PostController extends Controller
 
         $uploadImage = $this->uploadImage($request, 'image', 'posts');
 
-        $post = \DB::transaction(function () use ($request, $user, $uploadImage) {
-            $post = Post::create($request->only(['title', 'content']));
+        try {
+            $post = \DB::transaction(function () use ($request, $user, $uploadImage) {
+                $post = Post::create($request->only(['title', 'content']));
 
-            $post->postImage()->create([
-                'path' => $uploadImage,
-            ]);
+                $post->postImage()->create([
+                    'path' => $uploadImage,
+                ]);
 
-            UserPost::create([
-                'user_id' => $user->id,
-                'post_id' => $post->id,
-            ]);
+                UserPost::create([
+                    'user_id' => $user->id,
+                    'post_id' => $post->id,
+                ]);
 
-            return $post;
-        });
+                return $post;
+            });
+        } catch (\Throwable $th) {
+            //throw $th;
+
+            // Set a danger banner
+            $request->session()->flash('flash.bannerStyle', 'danger');
+            $request->session()->flash('flash.banner', $th->getMessage());
+        }
+
+        // Set a success banner
+        $request->session()->flash('flash.bannerStyle', 'success');
+        $request->session()->flash('flash.banner', 'Post created successfully!');
 
         return redirect()->route('post.show', ['post' => $post->id]);
     }
