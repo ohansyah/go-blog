@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\UserPost;
+use App\Traits\ImageTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    use ImageTrait;
+
     /**
      * Display a listing of the resource.
      */
@@ -33,18 +37,28 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $user = Auth::user();
 
-        \DB::transaction(function () use ($request, $user) {
+        $uploadImage = $this->uploadImage($request, 'image', 'posts');
+
+        $post = \DB::transaction(function () use ($request, $user, $uploadImage) {
             $post = Post::create($request->only(['title', 'content']));
+
+            $post->postImage()->create([
+                'path' => $uploadImage,
+            ]);
+
             UserPost::create([
                 'user_id' => $user->id,
-                'post_id' => $post->id
+                'post_id' => $post->id,
             ]);
+
+            return $post;
         });
-        return redirect()->route('post.index');
+
+        return redirect()->route('post.show', ['post' => $post->id]);
     }
 
     /**

@@ -22,4 +22,9 @@ class Post extends Model
     {
         return $this->created_at->format('d M, Y');
     }
+
+    public function postImage()
+    {
+        return $this->hasOne(PostImage::class);
+    }
 }
