@@ -6,12 +6,13 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\UserPost;
 use App\Traits\ImageTrait;
+use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    use ImageTrait;
+    use ImageTrait, SessionTrait;
 
     /**
      * Display a listing of the resource.
@@ -59,16 +60,10 @@ class PostController extends Controller
                 return $post;
             });
         } catch (\Throwable $th) {
-            //throw $th;
-
-            // Set a danger banner
-            $request->session()->flash('flash.bannerStyle', 'danger');
-            $request->session()->flash('flash.banner', $th->getMessage());
+            $this->flashError($request, $th->getMessage());
         }
 
-        // Set a success banner
-        $request->session()->flash('flash.bannerStyle', 'success');
-        $request->session()->flash('flash.banner', 'Post created successfully!');
+        $this->flashSuccess($request);
 
         return redirect()->route('post.show', ['post' => $post->id]);
     }
@@ -109,8 +104,37 @@ class PostController extends Controller
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
 
-        $post->update($request->only(['title', 'content']));
+        $uploadImage = $this->uploadImage($request, 'image', 'posts');
+
+        try {
+            \DB::transaction(function () use ($request, $user, $post, $uploadImage) {
+                $post->update($request->only(['title', 'content']));
+
+                if (!$uploadImage) {
+                    return $post;
+                }
+
+                if ($post->postImage) {
+                    $post->postImage()->update([
+                        'path' => $uploadImage,
+                    ]);
+                } else {
+                    $post->postImage()->create([
+                        'path' => $uploadImage,
+                    ]);
+                }
+
+            });
+        } catch (\Throwable $th) {
+            $this->flashError($request, $th->getMessage());
+        }
+
+        $post->refresh();
+
         $isUserPost = 1;
+
+        $this->flashSuccess($request);
+
         return view('post.show', compact('post', 'isUserPost'));
     }
 

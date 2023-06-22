@@ -17,6 +17,12 @@
             <span class="text-gray-500 dark:text-gray-400 text-right">{{ $post->created_at_format_dMY }}</span>
         </div>
 
+        @if($post->postImage)
+            <div class="mt-6">
+                <img src="{{ asset('storage/' . $post->postImage->path) }}" alt="Preview" class="mt-2 max-h-60 object-cover rounded-md mx-auto">
+            </div>
+        @endif
+        
         <article class="prose max-w-screen-2xl dark:prose-invert mt-10">{!! $post->content !!}</article>
     </div>
 </div>
