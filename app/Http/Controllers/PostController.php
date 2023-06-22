@@ -20,7 +20,8 @@ class PostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+        $posts = Post::with('postImage')
+            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
             ->get();
 
