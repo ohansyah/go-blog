@@ -81,9 +81,9 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 8. Add image upload functionality for blog posts.
 
-    - [ ] Implement file upload handling using Laravel's file system features.
-    - [ ] Update the create and edit views to include an image upload field.
-    - [ ] Store the uploaded images in a designated folder and associate them with the corresponding blog posts.
+    - [x] Implement file upload handling using Laravel's file system features.
+    - [x] Update the create and edit views to include an image upload field.
+    - [x] Store the uploaded images in a designated folder and associate them with the corresponding blog posts.
 
 9. Implement pagination for the blog listing page.
     - [ ] Use Laravel's pagination features to paginate the list of blog posts.
