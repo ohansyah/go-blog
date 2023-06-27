@@ -17,13 +17,13 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $posts = Post::with('postImage')
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
-            ->get();
+            ->simplePaginate($request->get('per_page', 5));
 
         return view('post.index', compact('posts'));
     }
