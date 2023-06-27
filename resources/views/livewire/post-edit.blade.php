@@ -17,14 +17,8 @@
                 <textarea name="content" id="myeditorinstance" class="form-textarea mt-1 block w-full" rows="20" required>{{$post->content}}</textarea>
             </div>
 
-            <div class="mt-6">
-                <button type="submit" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
-                    {{__('general.submit')}}
-                </button>
-                <a href="{{ route('post.show', ['post' => $post->id]) }}" class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
-                    {{__('general.back')}}
-                </a>
-            </div>
+            @include('components.form.btn-yes-no', ['route' => 'post.index'])
+
         </form>
 
     </div>
