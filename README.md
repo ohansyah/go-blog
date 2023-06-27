@@ -86,9 +86,9 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [x] Store the uploaded images in a designated folder and associate them with the corresponding blog posts.
 
 9. Implement pagination for the blog listing page.
-    - [ ] Use Laravel's pagination features to paginate the list of blog posts.
-    - [ ] Update the blog listing view to display paginated results.
-    - [ ] Implement navigation links to switch between different pages.
+    - [x] Use Laravel's pagination features to paginate the list of blog posts.
+    - [x] Update the blog listing view to display paginated results.
+    - [x] Implement navigation links to switch between different pages.
 
 ### Phase 4: Additional Features
 
