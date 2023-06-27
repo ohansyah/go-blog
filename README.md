@@ -74,21 +74,21 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 7. Integrate a rich text editor for content creation.
 
-    - [ ] Choose a rich text editor library such as TinyMCE or CKEditor.
-    - [ ] Install the library using a package manager or include it directly in your project.
-    - [ ] Integrate the rich text editor into the create and edit views.
-    - [ ] Implement the necessary JavaScript code to handle content formatting and interactions.
+    - [X] Choose a rich text editor library such as TinyMCE or CKEditor.
+    - [x] Install the library using a package manager or include it directly in your project.
+    - [x] Integrate the rich text editor into the create and edit views.
+    - [x] Implement the necessary JavaScript code to handle content formatting and interactions.
 
 8. Add image upload functionality for blog posts.
 
-    - [ ] Implement file upload handling using Laravel's file system features.
-    - [ ] Update the create and edit views to include an image upload field.
-    - [ ] Store the uploaded images in a designated folder and associate them with the corresponding blog posts.
+    - [x] Implement file upload handling using Laravel's file system features.
+    - [x] Update the create and edit views to include an image upload field.
+    - [x] Store the uploaded images in a designated folder and associate them with the corresponding blog posts.
 
 9. Implement pagination for the blog listing page.
-    - [ ] Use Laravel's pagination features to paginate the list of blog posts.
-    - [ ] Update the blog listing view to display paginated results.
-    - [ ] Implement navigation links to switch between different pages.
+    - [x] Use Laravel's pagination features to paginate the list of blog posts.
+    - [x] Update the blog listing view to display paginated results.
+    - [x] Implement navigation links to switch between different pages.
 
 ### Phase 4: Additional Features
 
