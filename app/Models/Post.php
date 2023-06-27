@@ -16,11 +16,17 @@ class Post extends Model
 
     protected $appends = [
         'created_at_format_dMY',
+        'content_preview'
     ];
 
     public function getCreatedAtFormatDMYAttribute()
     {
         return $this->created_at->format('d M, Y');
+    }
+
+    public function getContentPreviewAttribute()
+    {
+        return substr($this->content, 0, 400) . '...';
     }
 
     public function postImage()
