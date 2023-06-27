@@ -2,8 +2,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <div>
-                    @foreach ($posts as $post)
+
+                @foreach ($posts as $post)
                     <div class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
 
                         <a href="{{ route('post.show', ['post' => $post->id]) }}">
@@ -33,13 +33,14 @@
 
                         </a>
                     </div>
-
-                    @endforeach
-
-                    {{ $posts->links() }}
-                </div>
+                @endforeach
 
             </div>
+
+            <div class="mt-5">
+                {{ $posts->links() }}
+            </div>
+            
         </div>
     </div>
 </x-app-layout>
