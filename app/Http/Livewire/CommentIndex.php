@@ -4,20 +4,23 @@ namespace App\Http\Livewire;
 
 use App\Services\CommentService;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class CommentIndex extends Component
 {
+    use WithPagination;
+
     public $postId;
-    public $comments;
 
     public function mount($post)
     {
         $this->postId = $post->id;
-        $this->comments = CommentService::index($post->id);
     }
 
     public function render()
     {
-        return view('livewire.comment-index');
+        return view('livewire.comment-index', [
+            'comments' => CommentService::index($this->postId),
+        ]);
     }
 }

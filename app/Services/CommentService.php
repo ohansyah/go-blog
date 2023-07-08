@@ -10,12 +10,19 @@ use \Illuminate\Support\Facades\DB;
 
 class CommentService
 {
-    public static function index($postId)
+    /**
+     * Display a listing of the resource.
+     * @param $postId
+     * @param int paginate
+     * @return \Illuminate\Contracts\Pagination\Paginator
+     */
+    public static function index($postId, $paginate = 10)
     {
         $comments = Comment::with(['user'])
             ->where('post_id', $postId)
             ->whereNull('parent_id')
-            ->get();
+            ->orderBy('id', 'desc')
+            ->paginate($paginate);
 
         return $comments;
     }
