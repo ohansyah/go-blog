@@ -2,8 +2,7 @@
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="GO-Blog" width="500">
 </p>
 
-[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Guzzle](https://img.shields.io/badge/Guzzle-%5E7.2-blue)](https://docs.guzzlephp.org/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Jetstream](https://img.shields.io/badge/Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Sanctum](https://img.shields.io/badge/Sanctum-%5E3.2-blue)](https://laravel.com/docs/sanctum) [![Tinker](https://img.shields.io/badge/Tinker-%5E2.8-blue)](https://laravel.com/docs/artisan) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Mailtrap](https://img.shields.io/badge/Mailtrap-%5E1.7-blue)](https://mailtrap.io/)
-
+[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Laravel Jetstream](https://img.shields.io/badge/Laravel_Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%5E2.2-blue)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-%5E2.5-blue)](https://daisyui.com/) 
 
 
 GO-Blog is a Laravel-based project aimed at creating a powerful and user-friendly blogging platform. It provides a robust backend powered by PHP and the Laravel Framework, along with a modern front-end interface using Livewire.
@@ -11,13 +10,11 @@ GO-Blog is a Laravel-based project aimed at creating a powerful and user-friendl
 This project leverages the following technologies:
 
 -   **PHP** (`^8.1`) - The programming language powering the backend of the application.
--   **Guzzle** (`^7.2`) - A PHP HTTP client for making requests and working with APIs.
 -   **Laravel Framework** (`^10.10`) - A powerful PHP framework for web application development.
 -   **Laravel Jetstream** (`^3.2`) - A beautifully designed application scaffolding for Laravel.
--   **Laravel Sanctum** (`^3.2`) - A lightweight package for API authentication in Laravel.
--   **Laravel Tinker** (`^2.8`) - A REPL tool for interactive debugging and testing in Laravel.
 -   **Livewire** (`^2.12`) - A full-stack framework for building dynamic user interfaces in Laravel.
--   **Mailtrap** (`^1.7`) - An Email Delivery Platform that delivers just in time. Great for businesses and individuals.
+-   **Tailwind CSS** (`^2.2`) - A utility-first CSS framework for rapidly building custom user interfaces.
+-   **DaisyUI** (`^2.5`) - A component library for Tailwind CSS.
 
 ## Laravel Blog Project Roadmap
 
@@ -98,7 +95,6 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [x]   Establish a relationship between the Comment and Post models.
     - [x]   Design and implement a Livewire component for adding and displaying comments.
     - [x]   Update the PostShow view to render the comments component and allow users to leave comments.
-    - [ ]   Reply to comments.
     - [x]   Implement live updates using Livewire.
 
 11. Implement categories and tags for organizing blog posts.
@@ -139,6 +135,37 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [ ]   Consider implementing canonical URLs, structured data, and other SEO best practices to improve search engine visibility.
 
 ### Phase 6: Unit Test
+17. Write Unit Test.
+    - [ ]   Post - Create.
+    - [ ]   Post - View.
+    - [ ]   Post - Edit.
+    - [ ]   Comment - Create.
+    
 
 ### Phase 7: Refactor and Perform Enhancements
+18. Refractor Controller to Service Layer.
+    - [ ]   PostController.
+    - [ ]   CommentController.
 
+19. Refractor reusable VIew Component.
+    - [ ]   Post.
+    - [ ]   Comment.
+
+### Phase 8: Additional Features
+20. Post - Like and Count.
+    - [ ]   Create Like Model and Migration.
+    - [ ]   Create Like Controller.
+    - [ ]   Create Like Component.
+    - [ ]   Create Like Unit Test.
+
+21. Comment - Reply.
+    - [ ]   Able to reply to comment.
+
+22. Dashboard Notification.
+    - [ ]   Post - Like.
+    - [ ]   Post - Comment.
+    - [ ]   Comment - Reply.
+
+23. Search Feature using Laravel Scout.
+    - [ ]   Able to search post by title.
+    - [ ]   Able to search post by Category and Tags.
