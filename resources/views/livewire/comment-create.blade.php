@@ -1,13 +1,21 @@
 <div>
 
     @if($comment)
-        <div class="mb-6 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-            <div class="p-2 lg:p-6 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/30 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
-                <div class="flex justify-between items-center">
-                    <h3 class="font-bold">{{ $comment->user->name }}</h3>
-                    <span class="text-gray-500 dark:text-gray-400 text-right text-xs">{{ $comment->created_at }}</span>
+        <div class="animate-fade-in opacity-100">
+            <div class="mb-6 bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="p-2 lg:p-6 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/30 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold">{{ $comment->user->name }}</h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 dark:text-gray-400 text-right text-xs mx-3">{{ $comment->created_at }}</span>
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                            </span> 
+                        </div>
+                    </div>
+                    <div class="text-sm">{{ $comment->content }}</div>
                 </div>
-                <div class="text-sm">{{ $comment->content }}</div>
             </div>
         </div>
     @endif
