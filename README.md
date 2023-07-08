@@ -99,7 +99,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [x]   Design and implement a Livewire component for adding and displaying comments.
     - [x]   Update the PostShow view to render the comments component and allow users to leave comments.
     - [ ]   Reply to comments.
-    - [ ]   Implement live updates using Livewire.
+    - [x]   Implement live updates using Livewire.
 
 11. Implement categories and tags for organizing blog posts.
 
