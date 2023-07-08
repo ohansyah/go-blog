@@ -38,4 +38,18 @@ class CommentService
         });
 
     }
+
+    public static function storeFromArray($data)
+    {
+        $user = Auth::user();
+        $post = Post::findOrFail($data['post_id']);
+
+        $data['user_id'] = $user->id;
+
+        return DB::transaction(function () use ($data, $post) {
+            $comment = Comment::create($data);
+            $post->comments()->save($comment);
+            return $comment;
+        });
+    }
 }
