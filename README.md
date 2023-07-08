@@ -94,10 +94,12 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 10. Integrate a commenting system for blog posts.
 
-    - [ ]   Create a Comment model and migration for storing comments.
-    - [ ]   Establish a relationship between the Comment and Post models.
-    - [ ]   Design and implement a Livewire component for adding and displaying comments.
-    - [ ]   Update the PostShow view to render the comments component and allow users to leave comments.
+    - [x]   Create a Comment model and migration for storing comments.
+    - [x]   Establish a relationship between the Comment and Post models.
+    - [x]   Design and implement a Livewire component for adding and displaying comments.
+    - [x]   Update the PostShow view to render the comments component and allow users to leave comments.
+    - [ ]   Reply to comments.
+    - [x]   Implement live updates using Livewire.
 
 11. Implement categories and tags for organizing blog posts.
 

@@ -23,6 +23,7 @@ class PostController extends Controller
         $posts = Post::with('postImage')
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
+            ->orderBy('posts.id', 'desc')
             ->simplePaginate($request->get('per_page', 5));
 
         return view('post.index', compact('posts'));
