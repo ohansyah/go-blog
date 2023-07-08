@@ -6,9 +6,7 @@
             </div>
             
             <div class="divider"></div>
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('comment-index', ['post' => $post])
-            </div>
+            @livewire('comment-index', ['post' => $post])
 
             <div class="divider"></div>
             @livewire('comment-create', ['post' => $post])
