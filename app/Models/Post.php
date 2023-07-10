@@ -10,13 +10,15 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+        'category_id',
         'title',
-        'content'
+        'content',
     ];
 
     protected $appends = [
         'created_at_format_dMY',
-        'content_preview'
+        'content_preview',
+        'category_name'
     ];
 
     public function getCreatedAtFormatDMYAttribute()
@@ -29,6 +31,11 @@ class Post extends Model
         return substr($this->content, 0, 400) . '...';
     }
 
+    public function getCategoryNameAttribute()
+    {
+        return $this->category->name ?? null;
+    }
+
     public function postImage()
     {
         return $this->hasOne(PostImage::class);
@@ -37,5 +44,10 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

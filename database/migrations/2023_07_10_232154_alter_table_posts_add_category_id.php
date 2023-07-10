@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('category_id')->unsigned()->nullable()->index();
+            $table->integer('category_id')->unsigned()->nullable()->index()->after('id');
         });
     }
 

@@ -7,8 +7,11 @@ use Livewire\Component;
 class PostEdit extends Component
 {
     public $post;
-    public function mount($post)
+    public $categories;
+
+    public function mount($post, $categories)
     {
         $this->post = $post;
+        $this->categories = $categories;
     }
 }

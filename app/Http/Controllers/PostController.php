@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\UserPost;
 use App\Traits\ImageTrait;
@@ -20,7 +21,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        $posts = Post::with('postImage')
+        $posts = Post::with(['postImage', 'category'])
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
             ->orderBy('posts.id', 'desc')
@@ -34,7 +35,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $categories = Category::all();
+        return view('post.create', compact('categories'));
     }
 
     /**
@@ -48,7 +50,7 @@ class PostController extends Controller
 
         try {
             $post = \DB::transaction(function () use ($request, $user, $uploadImage) {
-                $post = Post::create($request->only(['title', 'content']));
+                $post = Post::create($request->only(['category_id', 'title', 'content']));
 
                 $post->postImage()->create([
                     'path' => $uploadImage,
@@ -93,7 +95,10 @@ class PostController extends Controller
         $post = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
-        return view('post.edit', compact('post'));
+
+        $categories = Category::all();
+        
+        return view('post.edit', compact('post', 'categories'));
     }
 
     /**
@@ -110,7 +115,7 @@ class PostController extends Controller
 
         try {
             \DB::transaction(function () use ($request, $user, $post, $uploadImage) {
-                $post->update($request->only(['title', 'content']));
+                $post->update($request->only(['category_id', 'title', 'content']));
 
                 if (!$uploadImage) {
                     return $post;

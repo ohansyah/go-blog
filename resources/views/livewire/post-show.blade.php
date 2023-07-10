@@ -1,6 +1,6 @@
 <div>
     <div class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
-        
+
         <div class="flex justify-between items-center">
             <h1 class="text-2xl font-medium text-gray-900 dark:text-white">
                 {{$post->title}}
@@ -17,12 +17,14 @@
             <span class="text-gray-500 dark:text-gray-400 text-right">{{ $post->created_at_format_dMY }}</span>
         </div>
 
+        <div class="badge badge-outline">{{ $post->category_name }}</div>
+
         @if($post->postImage)
             <div class="mt-6">
                 <img src="{{ asset('storage/' . $post->postImage->path) }}" alt="Preview" class="mt-2 max-h-60 object-cover rounded-md mx-auto">
             </div>
         @endif
-        
+
         <article class="prose max-w-screen-2xl dark:prose-invert mt-10">{!! $post->content !!}</article>
     </div>
 </div>

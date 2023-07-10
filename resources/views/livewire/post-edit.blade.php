@@ -13,6 +13,16 @@
             @include('components.form.image-upload')
 
             <div class="mt-6">
+                <label for="category" class="block text-gray-700 dark:text-gray-300 font-medium">Category</label>
+                <select name="category_id" id="category_id" class="form-select mt-1 block w-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300" required>
+                    <option value="">Select Category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mt-6">
                 <label for="content" class="block text-gray-700 dark:text-gray-300 font-medium">Content</label>
                 <textarea name="content" id="myeditorinstance" class="form-textarea mt-1 block w-full" rows="20" required>{{$post->content}}</textarea>
             </div>

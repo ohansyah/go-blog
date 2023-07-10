@@ -14,6 +14,10 @@
                                 </h1>
                             </div>
 
+                            @if ($post->category_name)
+                                <div class="badge badge-outline">{{ $post->category_name }}</div>
+                            @endif
+
                             @if($post->postImage)
                                 <div class="flex">
                                     <div class="w-2/3">
@@ -40,7 +44,7 @@
             <div class="mt-5">
                 {{ $posts->links() }}
             </div>
-            
+
         </div>
     </div>
 </x-app-layout>
