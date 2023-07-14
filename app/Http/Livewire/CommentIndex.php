@@ -11,10 +11,16 @@ class CommentIndex extends Component
     use WithPagination;
 
     public $postId;
+    protected $listeners = ['refreshCommentIndex' => 'refresh'];
 
     public function mount($post)
     {
         $this->postId = $post->id;
+    }
+
+    public function refresh()
+    {
+        // Add the logic to refresh ComponentB here
     }
 
     public function render()
