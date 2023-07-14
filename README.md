@@ -99,9 +99,9 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 11. Implement categories and tags for organizing blog posts.
 
-    - [ ]   Create models and migrations for categories and tags.
-    - [ ]   Define relationships between the Category, Tag, and Post models.
-    - [ ]   Update the database schema and seed the categories and tags data.
+    - [x]   Create models and migrations for categories and tags.
+    - [x]   Define relationships between the Category, Tag, and Post models.
+    - [x]   Update the database schema and seed the categories and tags data.
     - [ ]   Modify the views and components to display and filter blog posts by categories and tags.
 
 12. Enable social sharing of blog posts.
