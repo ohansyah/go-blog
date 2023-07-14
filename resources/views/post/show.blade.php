@@ -8,7 +8,6 @@
             <div class="divider"></div>
             @livewire('comment-index', ['post' => $post])
 
-            <div class="divider"></div>
             @livewire('comment-create', ['post' => $post])
             
         </div>
