@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
-use App\Libraries\StringTransform;
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostTag;
-use App\Models\Tag;
 use App\Models\UserPost;
+use App\Services\PostService;
 use App\Traits\ImageTrait;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
@@ -47,59 +45,11 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $user = Auth::user();
-
-        $tags = StringTransform::sExplode($request->get('tags'), ',');
-
-        $uploadImage = $this->uploadImage($request, 'image', 'posts');
-
         try {
-            $post = \DB::transaction(function () use ($request, $user, $tags, $uploadImage) {
-                $post = Post::create($request->only(['category_id', 'title', 'content']));
-
-                $post->postImage()->create([
-                    'path' => $uploadImage,
-                ]);
-
-                UserPost::create([
-                    'user_id' => $user->id,
-                    'post_id' => $post->id,
-                ]);
-
-                // get existing tags
-                $existingTags = Tag::whereIn('name', $tags)->get();
-
-                // store new tags
-                $newTags = array_diff($tags, $existingTags->pluck('name')->toArray());
-                foreach ($newTags as $newTag) {
-                    $tag = Tag::create([
-                        'name' => $newTag,
-                    ]);
-
-                    $existingTags->push($tag);
-                }
-
-                // prepare bulk create post tags
-                $postTags = [];
-                foreach ($existingTags as $existingTag) {
-                    $postTags[] = [
-                        'post_id' => $post->id,
-                        'tag_id' => $existingTag->id,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
-                }
-
-                // bulk create post tags
-                PostTag::insert($postTags);
-
-                return $post;
-            });
+            $post = (new PostService())->store($request);
         } catch (\Throwable $th) {
             $this->flashError($request, $th->getMessage());
         }
-
-        $this->flashSuccess($request);
 
         return redirect()->route('post.show', ['post' => $post->id]);
     }
