@@ -26,5 +26,17 @@
         @endif
 
         <article class="prose max-w-screen-2xl dark:prose-invert mt-10">{!! $post->content !!}</article>
+
+        @if ($post->postTags->count())
+            <div class="mt-6">
+                <div class="text-gray-700 dark:text-gray-300 font-medium">Tags :</div>
+                <div class="flex flex-wrap">
+                    @foreach ($post->postTags as $postTag)
+                        <div class="badge badge-neutral">{{ $postTag->tag->name }}</div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
     </div>
 </div>

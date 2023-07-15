@@ -63,7 +63,8 @@ class PostController extends Controller
         $isUserPost = UserPost::where('user_id', $user->id)
             ->where('post_id', $id)
             ->exists();
-        $post = Post::findOrFail($id);
+
+        $post = Post::with('postTags.tag')->findOrFail($id);
 
         return view('post.show', compact('post', 'isUserPost'));
     }
