@@ -50,4 +50,9 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function postTags()
+    {
+        return $this->hasMany(PostTag::class);
+    }
 }

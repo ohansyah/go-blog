@@ -24,6 +24,11 @@
             </div>
 
             <div class="mt-6">
+                <label for="tags" class="block text-gray-700 dark:text-gray-300 font-medium">Tags</label><div class="text-sm">(separate by comma , )</div>
+                <input type="text" name="tags" id="tags" class="form-input mt-1 block w-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300" required>
+            </div>
+
+            <div class="mt-6">
                 <label for="content" class="block text-gray-700 dark:text-gray-300 font-medium">Content</label>
                 <textarea name="content" id="myeditorinstance" class="form-textarea mt-1 block w-full" rows="20"></textarea>
             </div>
