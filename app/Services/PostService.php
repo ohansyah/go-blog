@@ -43,32 +43,7 @@ class PostService
                     'post_id' => $post->id,
                 ]);
 
-                // get existing tags
-                $existingTags = Tag::whereIn('name', $tags)->get();
-
-                // store new tags
-                $newTags = array_diff($tags, $existingTags->pluck('name')->toArray());
-                foreach ($newTags as $newTag) {
-                    $tag = Tag::create([
-                        'name' => $newTag,
-                    ]);
-
-                    $existingTags->push($tag);
-                }
-
-                // prepare bulk create post tags
-                $postTags = [];
-                foreach ($existingTags as $existingTag) {
-                    $postTags[] = [
-                        'post_id' => $post->id,
-                        'tag_id' => $existingTag->id,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
-                }
-
-                // bulk create post tags
-                PostTag::insert($postTags);
+                $this->manageTag($post, $tags);
 
                 return $post;
             });
@@ -77,6 +52,82 @@ class PostService
         }
 
         return $post;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param \Illuminate\Http\Request $request
+     * @return \App\Models\Post
+     */
+    public function update(Request $request, $post): Post
+    {
+        $tags = StringTransform::sExplode($request->get('tags'), ',');
+
+        $uploadImage = $this->uploadImage($request, 'image', 'posts');
+
+        try {
+            \DB::transaction(function () use ($request, $post, $tags, $uploadImage) {
+                $post->update($request->only(['category_id', 'title', 'content']));
+
+                // delete old tags
+                PostTag::where('post_id', $post->id)->delete();
+                $this->manageTag($post, $tags);
+
+                if (!$uploadImage) {
+                    return $post;
+                }
+
+                if ($post->postImage) {
+                    $post->postImage()->update([
+                        'path' => $uploadImage,
+                    ]);
+                } else {
+                    $post->postImage()->create([
+                        'path' => $uploadImage,
+                    ]);
+                }
+
+            });
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+        return $post;
+    }
+
+    /**
+     * Manage post tags
+     * @param \App\Models\Post $post
+     * @param array $tags
+     */
+    private function manageTag($post, $tags): void
+    {
+        // get existing tags
+        $existingTags = Tag::whereIn('name', $tags)->get();
+
+        // store new tags
+        $newTags = array_diff($tags, $existingTags->pluck('name')->toArray());
+        foreach ($newTags as $newTag) {
+            $tag = Tag::create([
+                'name' => $newTag,
+            ]);
+
+            $existingTags->push($tag);
+        }
+
+        // prepare bulk create post tags
+        $postTags = [];
+        foreach ($existingTags as $existingTag) {
+            $postTags[] = [
+                'post_id' => $post->id,
+                'tag_id' => $existingTag->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        // bulk create post tags
+        PostTag::insert($postTags);
     }
 
 }

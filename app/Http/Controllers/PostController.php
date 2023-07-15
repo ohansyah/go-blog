@@ -51,6 +51,8 @@ class PostController extends Controller
             $this->flashError($request, $th->getMessage());
         }
 
+        $this->flashSuccess($request);
+
         return redirect()->route('post.show', ['post' => $post->id]);
     }
 
@@ -75,7 +77,8 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $user = Auth::user();
-        $post = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+        $post = Post::with('postTags.tag')
+            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
 
@@ -94,27 +97,8 @@ class PostController extends Controller
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
 
-        $uploadImage = $this->uploadImage($request, 'image', 'posts');
-
         try {
-            \DB::transaction(function () use ($request, $user, $post, $uploadImage) {
-                $post->update($request->only(['category_id', 'title', 'content']));
-
-                if (!$uploadImage) {
-                    return $post;
-                }
-
-                if ($post->postImage) {
-                    $post->postImage()->update([
-                        'path' => $uploadImage,
-                    ]);
-                } else {
-                    $post->postImage()->create([
-                        'path' => $uploadImage,
-                    ]);
-                }
-
-            });
+            $post = (new PostService())->update($request, $post);
         } catch (\Throwable $th) {
             $this->flashError($request, $th->getMessage());
         }
