@@ -21,7 +21,6 @@ class CommentService
         $comments = Comment::with(['user'])
             ->where('post_id', $postId)
             ->whereNull('parent_id')
-            ->orderBy('id', 'desc')
             ->paginate($paginate);
 
         return $comments;

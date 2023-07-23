@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\UserPost;
+use App\Services\PostService;
 use App\Traits\ImageTrait;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
@@ -19,14 +21,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Auth::user();
-        $posts = Post::with('postImage')
-            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
-            ->where('user_posts.user_id', $user->id)
-            ->orderBy('posts.id', 'desc')
-            ->simplePaginate($request->get('per_page', 5));
-
-        return view('post.index', compact('posts'));
+        return view('post.index');
     }
 
     /**
@@ -34,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $categories = Category::all();
+        return view('post.create', compact('categories'));
     }
 
     /**
@@ -42,25 +38,8 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $user = Auth::user();
-
-        $uploadImage = $this->uploadImage($request, 'image', 'posts');
-
         try {
-            $post = \DB::transaction(function () use ($request, $user, $uploadImage) {
-                $post = Post::create($request->only(['title', 'content']));
-
-                $post->postImage()->create([
-                    'path' => $uploadImage,
-                ]);
-
-                UserPost::create([
-                    'user_id' => $user->id,
-                    'post_id' => $post->id,
-                ]);
-
-                return $post;
-            });
+            $post = (new PostService())->store($request);
         } catch (\Throwable $th) {
             $this->flashError($request, $th->getMessage());
         }
@@ -79,7 +58,8 @@ class PostController extends Controller
         $isUserPost = UserPost::where('user_id', $user->id)
             ->where('post_id', $id)
             ->exists();
-        $post = Post::findOrFail($id);
+
+        $post = Post::with('postTags.tag')->findOrFail($id);
 
         return view('post.show', compact('post', 'isUserPost'));
     }
@@ -90,10 +70,14 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $user = Auth::user();
-        $post = Post::join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+        $post = Post::with('postTags.tag')
+            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
-        return view('post.edit', compact('post'));
+
+        $categories = Category::all();
+
+        return view('post.edit', compact('post', 'categories'));
     }
 
     /**
@@ -106,27 +90,8 @@ class PostController extends Controller
             ->where('user_posts.user_id', $user->id)
             ->findOrFail($id);
 
-        $uploadImage = $this->uploadImage($request, 'image', 'posts');
-
         try {
-            \DB::transaction(function () use ($request, $user, $post, $uploadImage) {
-                $post->update($request->only(['title', 'content']));
-
-                if (!$uploadImage) {
-                    return $post;
-                }
-
-                if ($post->postImage) {
-                    $post->postImage()->update([
-                        'path' => $uploadImage,
-                    ]);
-                } else {
-                    $post->postImage()->create([
-                        'path' => $uploadImage,
-                    ]);
-                }
-
-            });
+            $post = (new PostService())->update($request, $post);
         } catch (\Throwable $th) {
             $this->flashError($request, $th->getMessage());
         }

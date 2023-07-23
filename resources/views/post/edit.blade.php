@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('post-edit', ['post' => $post])
+                @livewire('post-edit', ['post' => $post, 'categories' => $categories])
             </div>
         </div>
     </div>

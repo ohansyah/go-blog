@@ -12,6 +12,12 @@ return [
     // Comment
     'response' => 'Response',
     'placeholder' => 'What are your thoughts?',
-    
+
+    // etc
+    'all' => [
+        'all' => 'All',
+        'category' => 'All Categories',
+        'tag' => 'All Tags',
+    ],
 
 ];

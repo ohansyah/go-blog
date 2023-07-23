@@ -36,6 +36,8 @@ class CommentCreate extends Component
         $this->comment = CommentService::storeFromArray($request);
 
         $this->content = '';
+
+        $this->emit('refreshCommentIndex');
     }
 
     public function render()

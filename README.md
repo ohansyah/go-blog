@@ -99,10 +99,10 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 11. Implement categories and tags for organizing blog posts.
 
-    - [ ]   Create models and migrations for categories and tags.
-    - [ ]   Define relationships between the Category, Tag, and Post models.
-    - [ ]   Update the database schema and seed the categories and tags data.
-    - [ ]   Modify the views and components to display and filter blog posts by categories and tags.
+    - [x]   Create models and migrations for categories and tags.
+    - [x]   Define relationships between the Category, Tag, and Post models.
+    - [x]   Update the database schema and seed the categories and tags data.
+    - [x]   Modify the views and components to display and filter blog posts by categories and tags.
 
 12. Enable social sharing of blog posts.
 
@@ -169,3 +169,8 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 23. Search Feature using Laravel Scout.
     - [ ]   Able to search post by title.
     - [ ]   Able to search post by Category and Tags.
+
+24. Image functionality for blog posts.
+    - [ ]   compress image as thumbnail.
+    - [ ]   list - image thumbnail.
+    - [ ]   show - image original size.
