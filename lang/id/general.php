@@ -14,6 +14,10 @@ return [
     'placeholder' => 'Bagaimana pendapatmu?',
 
     // etc
-    'all' => 'Semua',
+    'all' => [
+        'all' => 'Semua',
+        'category' => 'Semua Kategori',
+        'tag' => 'Semua Tag',
+    ],
 
 ];

@@ -2,14 +2,14 @@
 
     <form>
         <select wire:model="optionCategory" id="optionCategory"  class="select select-bordered w-full max-w-xs mb-5 mr-5">
-            <option value="all">{{ __('general.all') }}</option>
+            <option value="all">{{ __('general.all.category') }}</option>
             @foreach($categories as $value)
             <option value="{{ $value->id }}">{{ $value->name }}</option>
             @endforeach
         </select>
 
         <select wire:model="optionTag" id="optionTag"  class="select select-bordered w-full max-w-xs mb-5">
-            <option value="all">{{ __('general.all') }}</option>
+            <option value="all">{{ __('general.all.tag') }}</option>
             @foreach($tags as $value)
             <option value="{{ $value->id }}">{{ $value->name }}</option>
             @endforeach

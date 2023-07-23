@@ -14,6 +14,10 @@ return [
     'placeholder' => 'What are your thoughts?',
 
     // etc
-    'all' => 'All',
+    'all' => [
+        'all' => 'All',
+        'category' => 'All Categories',
+        'tag' => 'All Tags',
+    ],
 
 ];
