@@ -18,7 +18,7 @@ class Post extends Model
     protected $appends = [
         'created_at_format_dMY',
         'content_preview',
-        'category_name'
+        'category_name',
     ];
 
     public function getCreatedAtFormatDMYAttribute()
@@ -54,5 +54,27 @@ class Post extends Model
     public function postTags()
     {
         return $this->hasMany(PostTag::class);
+    }
+
+    /**
+     * SECTION: SCOPES
+     */
+    public function scopeFilter($query, $request)
+    {
+        if (!$request || count($request) <= 0) {
+            return $query;
+        }
+
+        if (isset($request['category_id']) && $request['category_id'] != 'all') {
+            $query->where('category_id', $request['category_id']);
+        }
+
+        if (isset($request['tag_id']) && $request['tag_id'] != 'all') {
+            $query->whereHas('postTags', function ($q) use ($request) {
+                $q->where('tag_id', $request['tag_id']);
+            });
+        }
+
+        return $query;
     }
 }

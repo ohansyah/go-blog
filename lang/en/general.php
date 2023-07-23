@@ -12,6 +12,8 @@ return [
     // Comment
     'response' => 'Response',
     'placeholder' => 'What are your thoughts?',
-    
+
+    // etc
+    'all' => 'All',
 
 ];

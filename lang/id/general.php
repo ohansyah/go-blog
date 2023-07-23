@@ -12,6 +12,8 @@ return [
     // Comment
     'response' => 'Balas',
     'placeholder' => 'Bagaimana pendapatmu?',
-    
+
+    // etc
+    'all' => 'Semua',
 
 ];

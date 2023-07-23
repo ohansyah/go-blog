@@ -20,15 +20,16 @@ class PostService
 
     /**
      * Display a listing of the resource.
-     * @param integer $paginate
+     * @param array $request
      * @return \Illuminate\Pagination\Paginator
      */
-    public function index($paginate = 10) : Paginator
+    public static function index(array $request) : Paginator
     {
         $posts = Post::with(['postImage', 'category'])
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+            ->filter($request)
             ->orderBy('posts.id', 'desc')
-            ->simplePaginate($paginate);
+            ->simplePaginate($request['per_page'] ?? 10);
 
         return $posts;
     }
