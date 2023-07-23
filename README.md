@@ -169,3 +169,8 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 23. Search Feature using Laravel Scout.
     - [ ]   Able to search post by title.
     - [ ]   Able to search post by Category and Tags.
+
+24. Image functionality for blog posts.
+    - [ ]   compress image as thumbnail.
+    - [ ]   list - image thumbnail.
+    - [ ]   show - image original size.
