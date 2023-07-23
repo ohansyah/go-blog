@@ -21,14 +21,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Auth::user();
-        $posts = Post::with(['postImage', 'category'])
-            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
-            ->where('user_posts.user_id', $user->id)
-            ->orderBy('posts.id', 'desc')
-            ->simplePaginate($request->get('per_page', 5));
-
-        return view('post.index', compact('posts'));
+        return view('post.index');
     }
 
     /**

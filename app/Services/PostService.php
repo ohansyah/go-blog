@@ -11,11 +11,27 @@ use App\Traits\ImageTrait;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use \Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 class PostService
 {
     use ImageTrait, SessionTrait;
+
+    /**
+     * Display a listing of the resource.
+     * @param integer $paginate
+     * @return \Illuminate\Pagination\Paginator
+     */
+    public function index($paginate = 10) : Paginator
+    {
+        $posts = Post::with(['postImage', 'category'])
+            ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
+            ->orderBy('posts.id', 'desc')
+            ->simplePaginate($paginate);
+
+        return $posts;
+    }
 
     /**
      * Store a new post
