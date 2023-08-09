@@ -16,11 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/', [PublicPostController::class, 'index'])->name('public-post.index');
-    Route::get('/{id}', [PublicPostController::class, 'show'])->name('public-post.show');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -32,4 +27,9 @@ Route::middleware([
 
     Route::resource('post', PostController::class);
     Route::resource('comment', CommentController::class)->only(['store', 'update', 'destroy']);
+});
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', [PublicPostController::class, 'index'])->name('public-post.index');
+    Route::get('/{id}', [PublicPostController::class, 'show'])->name('public-post.show');
 });
