@@ -4,7 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="{{ $metaTags['description'] }}">
+        <meta name="keywords" content="{{ $metaTags['keywords'] }}">
+
+        <title>{{ $metaTags['title'] }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -12,6 +15,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
     </head>
     <body>
         @include('components.navigation-menu-guest')
@@ -19,5 +25,7 @@
         <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
             {{ $slot }}
         </div>
+
+        @livewireScripts
     </body>
 </html>
