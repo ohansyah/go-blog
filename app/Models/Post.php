@@ -61,7 +61,7 @@ class Post extends Model
      */
     public function scopeFilter($query, $request)
     {
-        if (!$request || count($request) <= 0) {
+        if (!$request || empty($request)) {
             return $query;
         }
 

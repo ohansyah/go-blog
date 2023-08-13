@@ -18,4 +18,10 @@ class PostImage extends Model
     {
         return $this->belongsTo(Post::class);
     }
+
+    // SECTION: ACCESSORS
+    public function getPathAttribute($value)
+    {
+        return file_exists(public_path('storage/' . $value)) ? $value : 'img/default.png';
+    }
 }
