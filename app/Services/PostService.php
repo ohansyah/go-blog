@@ -10,9 +10,8 @@ use App\Models\UserPost;
 use App\Traits\ImageTrait;
 use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
@@ -23,7 +22,7 @@ class PostService
      * @param array $request
      * @return \Illuminate\Pagination\Paginator
      */
-    public static function index(array $request) : Paginator
+    public static function index(array $request): Paginator
     {
         $posts = Post::with(['postImage', 'category'])
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
