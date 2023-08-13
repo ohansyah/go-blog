@@ -31,5 +31,5 @@ Route::middleware([
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', [PublicPostController::class, 'index'])->name('public-post.index');
-    Route::get('/{id}', [PublicPostController::class, 'show'])->name('public-post.show');
+    Route::get('/{id}/{slug}', [PublicPostController::class, 'show'])->name('public-post.show');
 });
