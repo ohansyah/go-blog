@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Web\Public;
 
-use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
+use App\Services\SEOService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class PostController extends Controller
 {
@@ -14,6 +16,9 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+        $metaTags = SEOService::getMetaTagDefault();
+        View::share(compact('metaTags'));
+
         return view('public.post.index');
     }
 
@@ -29,6 +34,9 @@ class PostController extends Controller
             // If the slugs don't match, perform a 301 redirect to the correct URL
             return redirect()->route('public-post.show', ['id' => $post->id, 'slug' => $post->slug], 301);
         }
+
+        $metaTags = SEOService::getMetaTagPost($post);
+        View::share(compact('metaTags'));
 
         return view('public.post.show', compact('post'));
     }
