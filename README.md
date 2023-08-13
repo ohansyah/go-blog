@@ -130,7 +130,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 16. Enhance SEO by generating search-friendly URLs and adding meta tags.
     - [x]   Customize the routes to generate SEO-friendly URLs for blog posts.
-    - [ ]   Update the views and Livewire components to include appropriate meta tags, such as title, description, and keywords.
+    - [x]   Update the views and Livewire components to include appropriate meta tags, such as title, description, and keywords.
     - [ ]   Implement a sitemap.xml file to help search engines index your blog posts.
     - [ ]   Consider implementing canonical URLs, structured data, and other SEO best practices to improve search engine visibility.
 
