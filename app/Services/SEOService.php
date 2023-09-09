@@ -32,7 +32,7 @@ class SEOService
         return [
             'title' => $post->title . ' - ' . config('app.name'),
             'description' => self::setMetaTagDescription($post->content),
-            'image' => asset('storage/' . $post->postImage->path),
+            'image' => asset('storage/' . optional($post->postImage)->path),
             'keywords' => $post->postTags->pluck('tag.name')->implode(',') . ',' . $post->category_name . ',' . config('app.name'),
         ];
     }
