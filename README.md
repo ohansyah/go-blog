@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="GO-Blog" width="500">
 </p>
 
-[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Laravel Jetstream](https://img.shields.io/badge/Laravel_Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%5E2.2-blue)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-%5E2.5-blue)](https://daisyui.com/) 
+[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Laravel Jetstream](https://img.shields.io/badge/Laravel_Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%5E2.2-blue)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-%5E2.5-blue)](https://daisyui.com/) [![TinyMCE](https://img.shields.io/badge/TinyMCE-^5-blue)](https://www.tiny.cloud/)
 
 
 GO-Blog is a Laravel-based project aimed at creating a powerful and user-friendly blogging platform. It provides a robust backend powered by PHP and the Laravel Framework, along with a modern front-end interface using Livewire.
@@ -15,6 +15,7 @@ This project leverages the following technologies:
 -   **Livewire** (`^2.12`) - A full-stack framework for building dynamic user interfaces in Laravel.
 -   **Tailwind CSS** (`^2.2`) - A utility-first CSS framework for rapidly building custom user interfaces.
 -   **DaisyUI** (`^2.5`) - A component library for Tailwind CSS.
+-   **TinyMCE** - Empowering content creation with a user-friendly rich text editor, making sharing your knowledge a breeze.
 
 ## Laravel Blog Project Roadmap
 
