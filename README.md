@@ -21,6 +21,17 @@ This project leverages the following technologies:
 
 This roadmap outlines the progression of the Laravel blog project, highlighting the key phases and tasks involved.
 
+### Phase 0: Bug Fix and Additional
+#### Bug Fix
+- [ ] Post Index - Post Heigh unstable.
+- [ ] Post Index - Post image size unstable.
+
+#### Additional
+- [ ] TinyMCE - put credential on env.
+- [ ] Debugging Tools -Install Laravel Telescope.
+- [ ] Debugging Tools -Install Laravel Log Viewer.
+
+
 ### Phase 1: Basic Setup and Functionality
 
 1. Set up Laravel project with Jetstream and Livewire.
