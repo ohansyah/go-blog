@@ -16,7 +16,60 @@ This project leverages the following technologies:
 -   **Tailwind CSS** (`^2.2`) - A utility-first CSS framework for rapidly building custom user interfaces.
 -   **DaisyUI** (`^2.5`) - A component library for Tailwind CSS.
 -   **TinyMCE** - Empowering content creation with a user-friendly rich text editor, making sharing your knowledge a breeze.
+---
+# Installation
+## Prerequisites
+Before you begin, make sure you have the following prerequisites installed on your system:
+- [PHP](https://www.php.net/) - PHP 8.1 or a compatible version.
+- [Composer](https://getcomposer.org/) - A PHP package manager.
+- [Node.js](https://nodejs.org/) - A JavaScript runtime.
+- [Laravel CLI](https://laravel.com/docs/10.x/installation) - Laravel command-line tool.
 
+## Installation Steps
+
+Follow these steps to set up your Laravel 10 project with Jetstream and Vite:
+
+1. **Clone the Repository**
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+2. **Install Composer Dependencies**
+   ```bash
+   composer install
+3. **IInstall NPM Dependencies**
+   ```bash
+   npm instal
+4. **Copy the Environment File**
+   Create a copy of the .env.example file and name it .env.
+   ```bash
+   cp .env.example .env
+5. **Generate an Application Key**
+   ```bash
+   php artisan key:generate
+6. **Configure the Database**
+   Update the .env file with your database connection details:
+   ```bash
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_database_username
+   DB_PASSWORD=your_database_password
+7. **Run Migrations and Seed the Database**
+   ```bash
+   php artisan migrate --seed
+8. **Install and Build Vite Assets**
+   ```bash
+   npm run dev
+
+   # OR for production build
+   npm run prod
+9. **Start the Laravel Development Server**
+   ```bash
+   php artisan serve
+10. **Access Your Application**
+Open your web browser and visit http://localhost:8000 to access your Laravel 10 project.
+---
 ## Laravel Blog Project Roadmap
 
 This roadmap outlines the progression of the Laravel blog project, highlighting the key phases and tasks involved.
