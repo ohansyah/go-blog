@@ -56,6 +56,11 @@ class Post extends Model
         return $this->hasMany(PostTag::class);
     }
 
+    public function userPost()
+    {
+        return $this->hasOne(UserPost::class);
+    }
+
     /**
      * SECTION: SCOPES
      */
