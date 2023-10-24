@@ -79,9 +79,10 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 - [ ] Post Index - Post Heigh unstable.
 - [ ] Post Index - Post image size unstable.
 - [x] Post Create - Slug.
+- [ ] Post Image - Validate Image Required withoud refresh page.
 
 #### Additional
-- [ ] TinyMCE - put credential on env.
+- [x] TinyMCE - put credential on env.
 - [ ] Debugging Tools -Install Laravel Telescope.
 - [ ] Debugging Tools -Install Laravel Log Viewer.
 
