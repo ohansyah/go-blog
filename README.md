@@ -24,6 +24,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
 - [Composer](https://getcomposer.org/) - A PHP package manager.
 - [Node.js](https://nodejs.org/) - A JavaScript runtime.
 - [Laravel CLI](https://laravel.com/docs/10.x/installation) - Laravel command-line tool.
+- [TinyMCE](https://www.tiny.cloud) - Rich text editor.
 
 ## Installation Steps
 
@@ -58,16 +59,20 @@ Follow these steps to set up your Laravel 10 project with Jetstream and Vite:
 7. **Run Migrations and Seed the Database**
    ```bash
    php artisan migrate --seed
-8. **Install and Build Vite Assets**
+8. **Set TinyMCE**
+    ```bash
+    TINYMCE_CDN_URL="https://cdn.tiny.cloud/1/YOUR_TINY_MCE_API_KEY/tinymce/5/tinymce.min.js"
+    // register and replace YOUR_TINY_MCE_API_KEY from https://www.tiny.cloud/my-account/dashboard -> Yout Tiny API Key
+9. **Install and Build Vite Assets**
    ```bash
    npm run dev
 
    # OR for production build
    npm run prod
-9. **Start the Laravel Development Server**
-   ```bash
-   php artisan serve
-10. **Access Your Application**
+10. **Start the Laravel Development Server**
+    ```bash
+    php artisan serve
+11. **Access Your Application**
 Open your web browser and visit http://localhost:8000 to access your Laravel 10 project.
 ---
 ## Laravel Blog Project Roadmap
