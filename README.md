@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" alt="GO-Blog" width="500">
 </p>
 
-[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Laravel Jetstream](https://img.shields.io/badge/Laravel_Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%5E2.2-blue)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-%5E2.5-blue)](https://daisyui.com/) 
+[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-%5E10.10-blue)](https://laravel.com/) [![Laravel Jetstream](https://img.shields.io/badge/Laravel_Jetstream-%5E3.2-blue)](https://jetstream.laravel.com/) [![Livewire](https://img.shields.io/badge/Livewire-%5E2.12-blue)](https://laravel-livewire.com/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%5E2.2-blue)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-%5E2.5-blue)](https://daisyui.com/) [![TinyMCE](https://img.shields.io/badge/TinyMCE-^5-blue)](https://www.tiny.cloud/)
 
 
 GO-Blog is a Laravel-based project aimed at creating a powerful and user-friendly blogging platform. It provides a robust backend powered by PHP and the Laravel Framework, along with a modern front-end interface using Livewire.
@@ -15,10 +15,80 @@ This project leverages the following technologies:
 -   **Livewire** (`^2.12`) - A full-stack framework for building dynamic user interfaces in Laravel.
 -   **Tailwind CSS** (`^2.2`) - A utility-first CSS framework for rapidly building custom user interfaces.
 -   **DaisyUI** (`^2.5`) - A component library for Tailwind CSS.
+-   **TinyMCE** - Empowering content creation with a user-friendly rich text editor, making sharing your knowledge a breeze.
+---
+# Installation
+## Prerequisites
+Before you begin, make sure you have the following prerequisites installed on your system:
+- [PHP](https://www.php.net/) - PHP 8.1 or a compatible version.
+- [Composer](https://getcomposer.org/) - A PHP package manager.
+- [Node.js](https://nodejs.org/) - A JavaScript runtime.
+- [Laravel CLI](https://laravel.com/docs/10.x/installation) - Laravel command-line tool.
+- [TinyMCE](https://www.tiny.cloud) - Rich text editor.
 
+## Installation Steps
+
+Follow these steps to set up your Laravel 10 project with Jetstream and Vite:
+
+1. **Clone the Repository**
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+2. **Install Composer Dependencies**
+   ```bash
+   composer install
+3. **IInstall NPM Dependencies**
+   ```bash
+   npm instal
+4. **Copy the Environment File**
+   Create a copy of the .env.example file and name it .env.
+   ```bash
+   cp .env.example .env
+5. **Generate an Application Key**
+   ```bash
+   php artisan key:generate
+6. **Configure the Database**
+   Update the .env file with your database connection details:
+   ```bash
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_database_username
+   DB_PASSWORD=your_database_password
+7. **Run Migrations and Seed the Database**
+   ```bash
+   php artisan migrate --seed
+8. **Set TinyMCE**
+    ```bash
+    TINYMCE_CDN_URL="https://cdn.tiny.cloud/1/YOUR_TINY_MCE_API_KEY/tinymce/5/tinymce.min.js"
+    // register and replace YOUR_TINY_MCE_API_KEY from https://www.tiny.cloud/my-account/dashboard -> Yout Tiny API Key
+9. **Install and Build Vite Assets**
+   ```bash
+   npm run dev
+
+   # OR for production build
+   npm run prod
+10. **Start the Laravel Development Server**
+    ```bash
+    php artisan serve
+11. **Access Your Application**
+Open your web browser and visit http://localhost:8000 to access your Laravel 10 project.
+---
 ## Laravel Blog Project Roadmap
 
 This roadmap outlines the progression of the Laravel blog project, highlighting the key phases and tasks involved.
+
+### Phase 0: Bug Fix and Additional
+#### Bug Fix
+- [ ] Post Index - Post Heigh unstable.
+- [ ] Post Index - Post image size unstable.
+- [x] Post Create - Slug.
+- [ ] Post Image - Validate Image Required withoud refresh page.
+
+#### Additional
+- [x] TinyMCE - put credential on env.
+
 
 ### Phase 1: Basic Setup and Functionality
 

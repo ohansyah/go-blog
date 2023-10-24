@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -13,6 +14,7 @@ class Post extends Model
         'category_id',
         'title',
         'content',
+        'slug',
     ];
 
     protected $appends = [
@@ -36,6 +38,15 @@ class Post extends Model
         return $this->category->name ?? null;
     }
 
+    /**
+     * MUTATOR SECTION
+     */
+
+    protected function setSlugAttribute()
+    {
+        $this->attributes['slug'] = Str::slug($this->title);
+    }
+
     public function postImage()
     {
         return $this->hasOne(PostImage::class);
@@ -54,6 +65,11 @@ class Post extends Model
     public function postTags()
     {
         return $this->hasMany(PostTag::class);
+    }
+
+    public function userPost()
+    {
+        return $this->hasOne(UserPost::class);
     }
 
     /**

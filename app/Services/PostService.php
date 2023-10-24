@@ -12,6 +12,7 @@ use App\Traits\SessionTrait;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostService
 {
@@ -44,11 +45,15 @@ class PostService
 
         $tags = StringTransform::sExplode($request->get('tags'), ',');
 
+        $request->merge([
+            'slug' => Str::slug($request->get('title')),
+        ]);
+
         $uploadImage = $this->uploadImage($request, 'image', 'posts');
 
         try {
             $post = \DB::transaction(function () use ($request, $user, $tags, $uploadImage) {
-                $post = Post::create($request->only(['category_id', 'title', 'content']));
+                $post = Post::create($request->only(['category_id', 'title', 'content', 'slug']));
 
                 $post->postImage()->create([
                     'path' => $uploadImage,
