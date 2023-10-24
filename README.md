@@ -88,8 +88,6 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 #### Additional
 - [x] TinyMCE - put credential on env.
-- [ ] Debugging Tools -Install Laravel Telescope.
-- [ ] Debugging Tools -Install Laravel Log Viewer.
 
 
 ### Phase 1: Basic Setup and Functionality
