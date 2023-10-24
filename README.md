@@ -78,6 +78,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 #### Bug Fix
 - [ ] Post Index - Post Heigh unstable.
 - [ ] Post Index - Post image size unstable.
+- [x] Post Create - Slug.
 
 #### Additional
 - [ ] TinyMCE - put credential on env.
