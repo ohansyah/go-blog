@@ -31,7 +31,7 @@ class Post extends Model
 
     public function getContentPreviewAttribute()
     {
-        return substr($this->content, 0, 400) . '...';
+        return strip_tags(substr($this->content, 0, 300)) . '...';
     }
 
     public function getCategoryNameAttribute()
