@@ -1,6 +1,5 @@
 <div class="container mx-auto mt-3">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
         @foreach ($posts as $post)
             <!-- Card 1 -->
             <a href="{{ route('public-post.show', ['id' => $post->id, 'slug' => $post->slug]) }}">
@@ -17,7 +16,8 @@
 
                             <!-- Overlay div with the post title -->
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <span class="text-white text-3xl text-center font-semibold px-2">{{ $post->title }}</span>
+                                <span
+                                    class="text-white text-3xl text-center font-semibold px-2">{{ $post->title }}</span>
                             </div>
                         </div>
                     @endif
