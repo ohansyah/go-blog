@@ -88,6 +88,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 #### Additional
 - [x] TinyMCE - put credential on env.
+- [x] Weather API - Integration with api.open-meteo.com
 
 
 ### Phase 1: Basic Setup and Functionality
