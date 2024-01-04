@@ -25,7 +25,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id, string $slug)
+    public function show(string $id, string $slug = null)
     {
         $post = Post::with('postTags.tag')->findOrFail($id);
 
