@@ -81,8 +81,8 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 ### Phase 0: Bug Fix and Additional
 #### Bug Fix
-- [ ] Post Index - Post Heigh unstable.
-- [ ] Post Index - Post image size unstable.
+- [x] Post Index - Post Heigh unstable.
+- [x] Post Index - Post image size unstable.
 - [x] Post Create - Slug.
 - [ ] Post Image - Validate Image Required withoud refresh page.
 
