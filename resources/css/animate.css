@@ -1,0 +1,15 @@
+@keyframes moveCloud {
+
+    0%,
+    100% {
+        transform: translateX(-30%);
+    }
+
+    50% {
+        transform: translateX(30%);
+    }
+}
+
+.moving-cloud {
+    animation: moveCloud 5s linear infinite;
+}
