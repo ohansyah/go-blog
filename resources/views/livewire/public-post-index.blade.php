@@ -1,6 +1,6 @@
 <div class="container mx-auto mt-3">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
             <!-- Card 1 -->
             <a href="{{ route('public-post.show', ['id' => $post->id, 'slug' => $post->slug]) }}">
                 <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
@@ -50,7 +50,13 @@
 
                 </div>
             </a>
-        @endforeach
+        @empty
+            <tr class="bg-white">
+                <td colspan="2" class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                    {{ __('No Post found') }}
+                </td>
+            </tr>
+        @endforelse
     </div>
 
     <div class="mt-5">

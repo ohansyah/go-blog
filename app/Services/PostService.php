@@ -25,13 +25,11 @@ class PostService
      */
     public static function index(array $request): Paginator
     {
-        $posts = Post::with(['postImage', 'category'])
+        return Post::with(['postImage', 'category'])
             ->join('user_posts', 'posts.id', '=', 'user_posts.post_id')
             ->filter($request)
             ->orderBy('posts.id', 'desc')
             ->simplePaginate($request['per_page'] ?? 10);
-
-        return $posts;
     }
 
     /**
