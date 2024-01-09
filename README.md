@@ -207,6 +207,9 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
 
 ### Phase 6: Unit Test
 17. Write Unit Test.
+    - [x]   Post - Public Index.
+    - [ ]   Post - Public View.
+    - [ ]   Post - Index.
     - [ ]   Post - Create.
     - [ ]   Post - View.
     - [ ]   Post - Edit.
