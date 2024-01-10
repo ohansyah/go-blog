@@ -10,7 +10,7 @@ use Livewire\Livewire;
 use Tests\TestCase;
 use App\Services\PostService;
 
-class LivewirePublicPostTest extends TestCase
+class LivewirePublicPostIndexTest extends TestCase
 {
     use RefreshDatabase;
 
