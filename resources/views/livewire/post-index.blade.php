@@ -19,7 +19,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse ($posts as $post)
             <!-- Card 1 -->
-            <a href="{{ route('public-post.show', ['id' => $post->id, 'slug' => $post->slug]) }}">
+            <a href="{{ route('post.show', ['post' => $post]) }}">
                 <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                     @if ($post->postImage)
                         <img class="w-full h-48 object-cover" src="{{ Storage::url($post->postImage->path) }}"
