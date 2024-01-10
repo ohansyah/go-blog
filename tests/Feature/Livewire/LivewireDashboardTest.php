@@ -8,8 +8,16 @@ use Tests\TestCase;
 
 class LivewireDashboardTest extends TestCase
 {
-
     use RefreshDatabase;
+
+    private User $user;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::factory()->create();
+    }
+
     /**
      * A basic feature test example.
      */
@@ -21,18 +29,14 @@ class LivewireDashboardTest extends TestCase
 
     public function test_dashboard_page_can_be_rendered(): void
     {
-        $user = User::factory()->create();
-
-        $this->actingAs($user)
+        $this->actingAs($this->user)
             ->get('/dashboard')
             ->assertStatus(200);
     }
 
     public function test_dashboard_load_component(): void
     {
-        $user = User::factory()->create();
-
-        $this->actingAs($user)
+        $this->actingAs($this->user)
             ->get('/dashboard')
             ->assertSeeLivewire('weather')
             ->assertSeeLivewire('welcome');
