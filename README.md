@@ -212,7 +212,7 @@ This roadmap outlines the progression of the Laravel blog project, highlighting 
     - [x]   Dashboard.
     - [ ]   Post - Index.
     - [ ]   Post - Create.
-    - [ ]   Post - View.
+    - [x]   Post - View.
     - [ ]   Post - Edit.
     - [ ]   Comment - Create.
     
