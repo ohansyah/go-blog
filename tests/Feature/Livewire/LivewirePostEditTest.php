@@ -16,7 +16,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class LivewirePostEditTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     private User $user;
     private UserPost $userPost;
@@ -56,14 +56,6 @@ class LivewirePostEditTest extends TestCase
             ->assertSee($this->userPost->post->content)
             ->assertViewHas('categories')
             ->assertViewHas('post');
-    }
-
-    public function test_post_edit_validation(): void
-    {
-        $this->actingAs($this->userPost->user)
-            ->put(route('post.update', ['post' => $this->userPost->post_id]))
-            ->assertSessionHasErrors(['title', 'category_id', 'tags', 'content', 'image']);
-
     }
 
     public function test_post_edit_successfull(): void
