@@ -44,6 +44,13 @@ class LivewirePostCreateTest extends TestCase
             ->assertSee(__('general.back'));
     }
 
+    public function test_post_create_validation_error(): void
+    {
+        $this->actingAs($this->user)
+            ->post(route('post.store'), [])
+            ->assertSessionHasErrors(['title', 'category_id', 'content', 'image']);
+    }
+
     public function test_post_create_successfull(): void
     {
         $this->actingAs($this->user)
