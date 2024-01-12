@@ -15,4 +15,14 @@ class UserPost extends Model
         'user_id',
         'post_id'
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }
