@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategorySeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::upsert([
+        $categories = [
             [
                 'id' => 1,
                 'parent_id' => null,
@@ -39,6 +40,10 @@ class CategorySeeder extends Seeder
                 'name' => 'Performance',
                 'image' => 'category/performance.png',
             ],
-        ], ['id', 'parent_id', 'name', 'image']);
+        ];
+
+        foreach ($categories as $category) {
+            Category::updateOrCreate(['id' => $category['id']], $category);
+        }
     }
 }
